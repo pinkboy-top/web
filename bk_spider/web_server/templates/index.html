@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>控制台</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">登录账号设置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">回复话术设置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">多任务设置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">代理IP设置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">已发送联系人列表</a>
+      </li>
+    </ul>
+
+    <div class="shadow-lg p-3 mb-2 bg-white rounded">状态概览</div>
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        总任务数量
+        <span class="badge badge-primary badge-pill">14</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        已处理任务
+        <span class="badge badge-primary badge-pill">2</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        已发送信息
+        <span class="badge badge-primary badge-pill">99</span>
+      </li>
+    </ul>
+    <br>
+    <div class="shadow-lg p-3 mb-2 bg-white rounded">自动登录设置</div>
+    <form>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <span class="badge badge-pill badge-success">上传账号文件</span>
+          <input type="file" class="form-control-file" name="file-list" required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <span class="badge badge-pill badge-danger">运行任务数量</span>
+          <select class="custom-select" id="task" required>
+            <option selected disabled value="">选择</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <span class="badge badge-pill badge-warning">代理IP</span>
+          <input type="text" class="form-control" id="proxy" value="127.0.0.1:8080" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <span class="badge badge-pill badge-info">回复话术</span>
+          <input type="text" class="form-control" id="msg" value="你好，请问在找房子吗？加微信xxx" required>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">提交任务</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
