@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <title>Pink短网址</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-3">
+    <h3>Pink短网址</h3>
+    <a href="/docs">API Docs</a><br>
+    <p>现有 {{url_num}} 个短链，在下方输入你要缩短的网址:</p>
+    <div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">http://</span>
+            </div>
+            <input type="text" class="form-control" placeholder="pinkboy.top" id="url" name="url">
+        </div>
+        <button id="button" class="btn btn-primary">生成短链接网址</button>
+    </div>
+    <br>
+    <br>
+    <div id="out"></div>
+</div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#button").click(function () {
+            url = $("#url").val().trim()
+            if (url.length <= 0) {
+                alert("链接不能为空！");
+                return
+            }
+            $.ajax({
+                type: 'get',
+                url: "api/insert?url=" + encodeURIComponent(url),
+                dataType: "json",
+                success: function (result) {
+                    if (result.code == 200) {
+                        document.getElementById("out").innerHTML = "<p>短链接：<a href='" + result.data.url + "'>" + result.data.url + "</a></p>"
+                    } else {
+                        alert(result.message);
+                    }
+                },
+                error: function (e) {
+                    alert(JSON.parse(e.responseText).message);
+                }
+            });
+        });
+    });
+</script>
+</html>
