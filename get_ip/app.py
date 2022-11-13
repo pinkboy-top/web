@@ -62,8 +62,7 @@ def index():
             flag = data.get('flag')
             page = data.get('page')
             if flag:
-                post_163_smtp('coder_pink@163.com', 'AQFPCBCDVEETWTXX',
-                'coder_pink@163.com', ['qjf-king@foxmail.com'], f'{ip}上线', f'{flag}')
+                pass
             for i in RequestHost.query.order_by(db.desc(RequestHost.id)).paginate(page=page, per_page=5, error_out=False).items:
                 result.append(i.to_json())
             return jsonify({'msg': 'post', 'code': 200, 'request': result})
